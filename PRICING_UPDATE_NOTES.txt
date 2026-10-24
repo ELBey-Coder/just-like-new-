@@ -1,0 +1,1 @@
+Updated pricing.html and prices.html with exact Square price list provided by client. Every price card links to https://just-like-new-window-tinting.square.site/. Navigation label changed from Packages to Prices. No other page content was changed except nav label.

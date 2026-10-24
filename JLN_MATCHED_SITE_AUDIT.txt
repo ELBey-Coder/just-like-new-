@@ -1,0 +1,4 @@
+Just Like New Window Tinting site audit:
+- Theme updated to match client logo.
+- Favicon updated.
+- Static HTML/CSS site ready for Netlify deployment.
