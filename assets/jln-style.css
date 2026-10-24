@@ -12,3 +12,55 @@
 
 /* Just Like New Window Tinting Chatbot */
 .jln-chat-toggle{position:fixed;right:22px;bottom:22px;z-index:9999;width:64px;height:64px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:linear-gradient(135deg,#e50914,#8b0308);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 12px 35px rgba(229,9,20,.45);cursor:pointer;transition:.2s}.jln-chat-toggle:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(229,9,20,.62)}.jln-chat-panel{position:fixed;right:22px;bottom:96px;z-index:9999;width:min(390px,calc(100vw - 32px));max-height:78vh;background:linear-gradient(180deg,#101012,#050505);border:1px solid rgba(229,9,20,.45);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.62);overflow:hidden;display:none}.jln-chat-panel.open{display:block}.jln-chat-head{display:flex;gap:12px;align-items:center;padding:16px;background:linear-gradient(135deg,rgba(229,9,20,.32),rgba(255,255,255,.04));border-bottom:1px solid rgba(255,255,255,.12)}.jln-chat-head img{width:54px;height:54px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.2)}.jln-chat-head h3{margin:0;text-transform:uppercase;font-size:1rem;letter-spacing:.04em}.jln-chat-head p{margin:3px 0 0;color:#d7d7d7;font-size:.86rem;line-height:1.3}.jln-chat-close{margin-left:auto;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:9px;width:34px;height:34px;cursor:pointer}.jln-chat-body{padding:14px;max-height:52vh;overflow:auto}.jln-chat-msg{padding:11px 13px;border-radius:14px;margin:0 0 10px;font-size:.94rem;line-height:1.45}.jln-chat-bot{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);color:#f1f1f1}.jln-chat-user{background:linear-gradient(135deg,#e50914,#9b050b);color:#fff;margin-left:34px}.jln-chat-quick{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.jln-chat-quick button{background:#0b0b0d;color:#fff;border:1px solid rgba(229,9,20,.5);border-radius:10px;padding:10px 9px;font-weight:800;font-size:.8rem;text-transform:uppercase;cursor:pointer}.jln-chat-quick button:hover{background:rgba(229,9,20,.18)}.jln-chat-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}.jln-chat-actions a{display:flex;align-items:center;justify-content:center;border-radius:10px;padding:11px 10px;font-weight:900;text-transform:uppercase;font-size:.82rem}.jln-chat-actions .book{background:linear-gradient(135deg,#e50914,#8b0308);color:#fff}.jln-chat-actions .call{border:1px solid rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.05)}.jln-chat-form{display:flex;gap:8px;padding:12px 14px 14px;border-top:1px solid rgba(255,255,255,.11)}.jln-chat-form input{flex:1;background:#09090a;border:1px solid rgba(255,255,255,.16);color:#fff;border-radius:10px;padding:12px;font:inherit}.jln-chat-form button{background:linear-gradient(135deg,#e50914,#8b0308);border:0;color:#fff;border-radius:10px;padding:0 14px;font-weight:900;cursor:pointer}.jln-chat-note{color:#aaa;font-size:.75rem;padding:0 14px 13px;line-height:1.3}@media(max-width:520px){.jln-chat-panel{right:12px;bottom:88px}.jln-chat-toggle{right:14px;bottom:16px}.jln-chat-quick,.jln-chat-actions{grid-template-columns:1fr}}
+
+
+/* Mobile chat layout fix: keep the message composer visible above the phone keyboard */
+.jln-chat-panel.open{
+  display:flex;
+  flex-direction:column;
+}
+.jln-chat-body{
+  min-height:0;
+  flex:1 1 auto;
+  max-height:none;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+.jln-chat-head,
+.jln-chat-quick,
+.jln-chat-actions,
+.jln-chat-form,
+.jln-chat-note{
+  flex-shrink:0;
+}
+.jln-chat-form input{
+  min-width:0;
+}
+@media(max-width:520px){
+  .jln-chat-panel{
+    right:12px;
+    bottom:12px;
+    width:calc(100vw - 24px);
+    max-height:calc(100dvh - 24px);
+    max-height:calc(100vh - 24px);
+    border-radius:16px;
+  }
+  .jln-chat-panel.open{
+    max-height:calc(100dvh - 24px);
+    max-height:calc(100vh - 24px);
+  }
+  .jln-chat-head{padding:10px 12px;gap:9px}
+  .jln-chat-head img{width:42px;height:42px}
+  .jln-chat-head h3{font-size:.9rem}
+  .jln-chat-head p{font-size:.78rem}
+  .jln-chat-body{padding:10px 12px;min-height:70px}
+  .jln-chat-msg{padding:9px 11px;margin-bottom:8px;font-size:.9rem}
+  .jln-chat-quick{grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 8px}
+  .jln-chat-quick button{padding:8px 6px;font-size:.72rem}
+  .jln-chat-actions{grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 8px}
+  .jln-chat-actions a{padding:9px 7px;font-size:.75rem}
+  .jln-chat-form{padding:9px 12px calc(9px + env(safe-area-inset-bottom, 0px));gap:7px}
+  .jln-chat-form input{padding:11px 10px;font-size:16px}
+  .jln-chat-form button{padding:0 12px}
+  .jln-chat-note{display:none}
+}
